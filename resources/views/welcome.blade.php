@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -15,7 +15,7 @@
                 background-color: #188f3c;
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
-                font-weight: bold;
+                font-weight: 200;
                 height: 100vh;
                 margin: 0;
             }
@@ -25,6 +25,7 @@
             }
 
             .flex-center {
+                color: #fff;
                 align-items: center;
                 display: flex;
                 justify-content: center;
@@ -36,8 +37,8 @@
 
             .top-right {
                 position: absolute;
-                right: 10px;
-                top: 18px;
+                right: 550px;
+                top: 200px;
             }
 
             .content {
@@ -45,11 +46,12 @@
             }
 
             .title {
+                 color: #fff;
                 font-size: 84px;
             }
 
             .links > a {
-                color: #000;
+                color: #fff;
                 padding: 0 25px;
                 font-size: 13px;
                 font-weight: 600;
@@ -59,7 +61,7 @@
             }
 
             .m-b-md {
-                color: #000;
+                color: #fff;
                 margin-bottom: 30px;
             }
         </style>
@@ -82,18 +84,12 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
-                </div>
+                   <b> Selamat Datang di Laravel Saya
 
+                </div>
+Silahkan untuk REGISTRASI terlebih dahulu
                 <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    
                 </div>
             </div>
         </div>

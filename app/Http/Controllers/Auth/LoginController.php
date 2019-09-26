@@ -24,7 +24,7 @@ class LoginController extends Controller
     {
         $request->validate([
             $this->username() => 'required|string',
-            'password' => 'required|string',
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
             'captcha' => 'required|captcha',    
         ]);
     }
@@ -34,10 +34,7 @@ class LoginController extends Controller
         return 'phone';
     }
 
-    protected function credentials(Request $request)
-    {
-        return $request -> only($this->username(),'password');
-    }
+  
    
     public function refreshCaptcha()
     {
@@ -68,4 +65,3 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 }
-?>

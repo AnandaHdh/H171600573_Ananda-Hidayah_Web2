@@ -2,18 +2,6 @@
 
 @section('content')
 
-<style>
-            html, body {
-                background-color: #188f3c;
-                color: #636b6f;
-
-                font-weight: bold;
-             
-            }
-
-           
-        </style>
-
 
 <div class="container">
     <div class="row justify-content-center">
