@@ -7,7 +7,12 @@
             <div class="card">
                 <div class="card-header text-center bg-info"  >Galeri</div>
                 <div class="card-body">
+                <a href="{!! route('galeri.create')!!}" class="btn btn-primary ">{{ __('Tambah Data')}}</a>
+                <a href="{!! route('kategori_galeri.index')!!}" class="btn btn-primary">{{ __('Kategori Galeri')}}</a>
+                <a href="{!! route('home')!!}" class="btn btn-success">{{ __('Home')}}</a>
+
                 <div class="col text-center">
+                <br>
                 <table class="table table-bordered">
                     <thead class ="bg-success">
                             <tr>
@@ -17,6 +22,7 @@
                                 <th scope="col">path</th>
                                 <th scope="col">User_id</th>
                                 <th scope="col">Kategori_galeri_id</th>
+                                <th scope="col">Aksi</th>
                             </tr>
                     </thead>
                     <tbody>
@@ -29,6 +35,11 @@
                                 <td>{!! $item->path!!}</td>
                                 <td>{!! $item->users_id!!}</td>
                                 <td>{!! $item->kategori_galeri_id!!}</td>
+                                <td>
+                                <button class="btn btn-danger" type="submit" onclick="return confirm('Yakin ingin menghapus data?')">Hapus</button>
+                                <a href="{!! route('galeri.show',[$item-> id]) !!}" button class="btn btn-success " >Lihat Detail</a>
+                                
+                                </td>
                             </tr>
                             @endforeach
                     </tbody>

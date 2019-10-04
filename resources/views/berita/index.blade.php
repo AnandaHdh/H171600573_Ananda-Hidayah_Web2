@@ -7,7 +7,12 @@
             <div class="card">
                 <div class="card-header text-center bg-info"  >Berita</div>
                 <div class="card-body">
+                <a href="{!! route('berita.create')!!}" class="btn btn-primary  ">{{ __('Tambah Data')}}</a>
+                <a href="{!! route('kategori_berita.index')!!}" class="btn btn-primary" >{{ __('Kategori Berita')}}</a>
+                <a href="{!! route('home')!!}" class="btn btn-success ">{{ __('Home')}}</a>
+                
                 <div class="col text-center">
+                <br>
                 <table class="table table-bordered">
                     <thead class ="bg-success">
                             <tr>
@@ -16,6 +21,7 @@
                                 <th scope="col">isi</th>
                                 <th scope="col">User_id</th>
                                 <th scope="col">Kategori_berita_id</th>
+                                <th scope="col">Aksi</th>
                             </tr>
                     </thead>
                     <tbody>
@@ -27,6 +33,11 @@
                                 <td>{!! $item->isi!!}</td>
                                 <td>{!! $item->users_id!!}</td>
                                 <td>{!! $item->kategori_berita_id!!}</td>
+                                <td>
+                                <button class="btn btn-danger" type="submit" onclick="return confirm('Yakin ingin menghapus data?')">Hapus</button>
+                                <a href="{!! route('berita.show',[$item-> id]) !!}" button class="btn btn-success " >Lihat Detail</a>
+                                
+                                </td>
                             </tr>
                             @endforeach
                     </tbody>
