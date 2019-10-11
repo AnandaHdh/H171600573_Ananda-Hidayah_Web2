@@ -3,20 +3,24 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header text-center bg-info"  >Kategori Artikel</div>
-                <div class="card-body">
-                <a href="{!! route('kategori_artikel.create')!!}" class="btn btn-primary btn-outline-danger">{{ __('Tambah Data')}}</a>
-                <a href="{!! route('home')!!}" class="btn btn-success">{{ __('Home')}}</a>
+                <div class="card-body ">
+                <a href="{!! route('kategori_artikel.create')!!}" class="btn btn-primary">{{ __('Tambah Data')}}</a>
+                
+                <a href="{!! route('kategori_artikel.index')!!}" class="btn btn-danger">{{ __('Kategori Artikel yang terhapus')}}</a>
                 <div class="col text-center">
-                <table class="table table-bordered">
-                    <thead class ="bg-success">
+                <br>
+                <table class="table table-bordered bg-white">
+                    <thead class ="bg-primary">
                             <tr>
                                 <th scope="col">Id</th>
                                 <th scope="col">Nama</th>
                                 <th scope="col">User_id</th>
                                 <th scope="col">Created</th>
+                                <th scope="col">Updated</th>
+                                
                                 <th scope="col">Aksi</th>
                             </tr>
                     </thead>
@@ -28,10 +32,18 @@
                                 <td>{!! $item->nama!!}</td>
                                 <td>{!! $item->users_id !!}</td>
                                 <td>{!! $item->created_at->format('d/m/Y H:i:s') !!}</td>
+                                <td>{!! $item->updated_at->format('d/m/Y H:i:s') !!}</td>
                                 <td>
-                                <button class="btn btn-danger" type="submit" onclick="return confirm('Yakin ingin menghapus data?')">Hapus</button>
-                                <a href="{!! route('kategori_artikel.show',[$item-> id]) !!}" button class="btn btn-success " >Lihat Detail</a>
                                 
+                                <a href="{!! route('kategori_artikel.show',[$item-> id]) !!}" button class="btn btn-sm btn-success" >Lihat Detail</a>
+                                
+                                <a href="{!! route('kategori_artikel.edit',[$item-> id]) !!}" button class="btn btn-sm btn-warning" >Edit</a>
+                             
+                                {!! Form::open(['route' => ['kategori_artikel.destroy', $item->id],'method' => 'delete']) !!}
+
+                                {!! Form::submit('Hapus', ['class'=>'btn  btn-sm btn-danger','onclick'=>"return confirm('Apakah Anda yakin menghapus data ini ?')"]); !!}
+                                {!! Form::close() !!}
+
                                 </td>
                             </tr>
                             @endforeach

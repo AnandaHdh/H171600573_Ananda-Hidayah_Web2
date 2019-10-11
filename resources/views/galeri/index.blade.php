@@ -3,18 +3,19 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header text-center bg-info"  >Galeri</div>
                 <div class="card-body">
                 <a href="{!! route('galeri.create')!!}" class="btn btn-primary ">{{ __('Tambah Data')}}</a>
-                <a href="{!! route('kategori_galeri.index')!!}" class="btn btn-primary">{{ __('Kategori Galeri')}}</a>
-                <a href="{!! route('home')!!}" class="btn btn-success">{{ __('Home')}}</a>
+
+                
+                <a href="{!! route('galeri.trash')!!}" class="btn btn-danger">{{ __('Galeri yang telah di hapus')}}</a>
 
                 <div class="col text-center">
                 <br>
-                <table class="table table-bordered">
-                    <thead class ="bg-success">
+                <table class="table table-bordered bg-white">
+                    <thead class ="bg-primary">
                             <tr>
                                 <th scope="col">Id</th>
                                 <th scope="col">nama</th>
@@ -22,6 +23,8 @@
                                 <th scope="col">path</th>
                                 <th scope="col">User_id</th>
                                 <th scope="col">Kategori_galeri_id</th>
+                                <th scope="col">Created</th>
+                                <th scope="col">Updated</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                     </thead>
@@ -35,10 +38,17 @@
                                 <td>{!! $item->path!!}</td>
                                 <td>{!! $item->users_id!!}</td>
                                 <td>{!! $item->kategori_galeri_id!!}</td>
+                                <td>{!! $item->created_at->format('d/m/Y H:i:s') !!}</td>
+                                <td>{!! $item->updated_at->format('d/m/Y H:i:s') !!}</td>
                                 <td>
-                                <button class="btn btn-danger" type="submit" onclick="return confirm('Yakin ingin menghapus data?')">Hapus</button>
-                                <a href="{!! route('galeri.show',[$item-> id]) !!}" button class="btn btn-success " >Lihat Detail</a>
+                                <a href="{!! route('galeri.show',[$item-> id]) !!}" button class="btn btn-sm btn-success" >Lihat Detail</a>
                                 
+                                <a href="{!! route('galeri.edit',[$item-> id]) !!}" button class="btn btn-sm btn-warning btn-success" >Edit</a>
+                             
+                                {!! Form::open(['route' => ['galeri.destroy', $item->id],'method' => 'delete']) !!}
+
+                                {!! Form::submit('Hapus', ['class'=>'btn  btn-sm btn-danger','onclick'=>"return confirm('Apakah Anda yakin menghapus data ini ?')"]); !!}
+                                {!! Form::close() !!}
                                 </td>
                             </tr>
                             @endforeach

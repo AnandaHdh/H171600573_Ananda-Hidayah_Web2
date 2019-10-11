@@ -38,11 +38,24 @@
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                    Menu <span class="caret"></span>
                                 </a>
+                              
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{!! route('artikel.index')!!}" class="btn btn-primary">{{ __('Artikel') }}</a>
+                                    <ul class ="dropdown-submenu">
+                                    <a  class="dropdown-item" href="{!! route('kategori_artikel.index')!!}">{{ __('KategoriArtikel') }}</a>
+                                    </ul>
                                     <a class="dropdown-item" href="{!! route('berita.index')!!}" class="btn btn-primary">{{ __('Berita') }}</a>
+                                    <ul class ="dropdown-submenu">
+                                    <a  class="dropdown-item" href="{!! route('kategori_berita.index')!!}">{{ __('Kategori Berita') }}</a>
+                                    </ul>
                                     <a class="dropdown-item" href="{!! route('galeri.index')!!}" class="btn btn-primary">{{ __('Galeri') }}</a>
+                                    <ul class ="dropdown-submenu">
+                                    <a  class="dropdown-item" href="{!! route('kategori_galeri.index')!!}">{{ __('Kategori Galeri') }}</a>
+                                    </ul>
                                     <a class="dropdown-item" href="{!! route('pengumuman.index')!!}" class="btn btn-primary">{{ __('Pengumuman') }}</a>
+                                    <ul class ="dropdown-submenu">
+                                    <a  class="dropdown-item" href="{!! route('kategori_pengumuman.index')!!}">{{ __('Kategori Pengumuman') }}</a>
+                                    </ul>
                                 </div>
                                 
                         @endauth
